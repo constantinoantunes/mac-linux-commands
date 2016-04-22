@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# 
+# Compatible with
+# http://www.gnu.org/software/autogen/mktemp.html
+#
+
+REAL_MKTEMP=/usr/bin/mktemp
+
+if [ "$1" = "-d" -a $# -eq 1 ]
+then
+	# If TEMPLATE is not specified, use tmp.XXXXXXXXXX, and --tmpdir is implied.
+	$REAL_MKTEMP -d /tmp/tmp.XXXXXXXXXX
+else
+	$REAL_MKTEMP $@
+fi
