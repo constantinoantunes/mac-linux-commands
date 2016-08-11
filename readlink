@@ -2,7 +2,8 @@
 
 if [ "$1" = "-f" ]
 then
-	echo $(perl -e 'use Cwd "abs_path";print abs_path(shift)' $2)
+	filename="$2"
+	echo $(perl -e 'use Cwd "abs_path";print abs_path(shift)' "$filename")
 else
 	/usr/bin/readlink $@
 fi
